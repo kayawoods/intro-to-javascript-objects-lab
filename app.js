@@ -144,9 +144,9 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 Solve Exercise 10 here:
 */
 
-//  game.catchPokemon = function(pokemonObj) {
-  // game.party.push(pokemonObj);
-//  }
+ game.catchPokemon = function(pokemonObj) {
+  game.party.push(pokemonObj);
+ }
  
 /*
 Exercise 11
@@ -167,9 +167,18 @@ game.catchPokemon = function(pokemonObj) {
  
 console.log(game.items)
 
+const pokeball =game.items.find(items => items.name === 'pokeball')
+if (pokeball) {
+  pokeball.quality -= 1; 
+}
+game.catchPokemon(pokemon[10]); 
+console.log('party',game.party)
+console.log('items', game.items)
+
+
 // go into items and find ()
-if, statement, you have pokemon balls, decrease quantity after you use it. 
-when you console log it, catch a pokemon 5
+// if, statement, you have pokemon balls, decrease quantity after you use it. 
+// when you console log it, catch a pokemon 5
 
 /*
 Exercise 12
@@ -210,6 +219,29 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 
 Solve Exercise 13 here:
 */
+game.gymStatus = function() {
+
+  const gymTally = {
+    completed: 0,
+    incomplete: 0 
+  }; 
+
+  this.gyms.forEach(gym => {
+if (gym.completed) {
+  gymTally.completed += 1;
+}
+else { 
+  gymTally.incomplete +=1;
+}
+  })
+  console.log('Gym Tally', gymTally); 
+ }
+game.gymStatus ();
+
+const gymTally =game.items.find(items => items.name === 'pokeball')
+if (pokeball) {
+  pokeball.quality -= 1; 
+}
 
 /*
 Exercise 14
@@ -222,6 +254,12 @@ This method should:
 
 Solve Exercise 14 here:
 */
+game.partyCount = function (){ 
+  return this,this.party.length; 
+}; 
+const count = game.partyCount ()
+console.log('number of Pokemon in party', count); 
+
 
 /*
 Exercise 15
@@ -230,7 +268,12 @@ Exercise 15
 
 Solve Exercise 15 here:
 */
-
+for (let idx = 0; idx < game.gyms.length; idx++) {
+  if (game.gyms[idx].difficulty < 8) {
+    game.gyms[idx].completed = true;
+  }
+}
+console.log(game.gyms);
 /*
 Exercise 16
 1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
@@ -239,7 +282,7 @@ Exercise 16
 Solve Exercise 16 here:
 */
 
-
+console.log(game);
 
 
 
